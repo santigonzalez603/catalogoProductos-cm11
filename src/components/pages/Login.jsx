@@ -1,7 +1,7 @@
 import {Row, Col, Form, Button} from "react-bootstrap";
 const Login = () => {
     return (
-        
+
         <section className="container">
             <h1>Formulario</h1>
             <Row xs={1} md={2}>
@@ -23,7 +23,7 @@ const Login = () => {
         </Form.Text>
         </Form.Group>
       <Button variant="success" type="submit">
-        Submit
+        Enviar
       </Button>
     </Form>
                 </Col>
