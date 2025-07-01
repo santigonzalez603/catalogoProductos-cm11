@@ -1,7 +1,7 @@
 import {Row, Col, Form, Button} from "react-bootstrap";
 const Login = () => {
+     console.log(import.meta.env.VITE_API_EMAIL)
     return (
-
         <section className="container">
             <h1>Formulario</h1>
             <Row xs={1} md={2}>
