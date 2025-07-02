@@ -8,18 +8,20 @@ import FormularioProducto from "./components/pages/producto/FormularioProducto";
 import Footer from "./components/shared/Footer";
 import Menu from "./components/shared/Menu";
 import Login from "./components/pages/Login";
-
+import { useState } from "react";
 
 function App() {
+  const usuarioLogeado = sessionStorage.getItem('userKey') || false;
+  const [usuarioAdmin, setUsuarioAdmin] = useState(usuarioLogeado)
   return (
     <>
     <BrowserRouter>
-      <Menu></Menu>
+      <Menu usuarioAdmin={usuarioAdmin} setUsuarioAdmin={setUsuarioAdmin}></Menu>
       <main>
         <Routes>
           <Route path="/" element={<Inicio/>}></Route>
           <Route path="/detalle" element={<DetalleProducto></DetalleProducto>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/login" element={<Login setUsuarioAdmin={setUsuarioAdmin} ></Login>}></Route>
           <Route path="/administrador" element={<Administrador></Administrador>}></Route>
           <Route path="/administrador/crear" element={<FormularioProducto></FormularioProducto>}></Route>
           <Route path="/administrador/editar" element={<FormularioProducto></FormularioProducto>}></Route>
