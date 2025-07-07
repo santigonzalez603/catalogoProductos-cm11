@@ -1,7 +1,7 @@
 import {Row, Col, Form, Button} from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-const Login = ({user}) => {
+const Login = ({setUsuarioAdmin}) => {
   const {
     register,
     handleSubmit,
@@ -15,8 +15,7 @@ const Login = ({user}) => {
     console.log(import.meta.env.VITE_API_EMAIL)
   //soy el administrador
   console.log('soy el administrador')
-  user(true)
-  setUsuarioAdimin(true)
+  setUsuarioAdmin(true)
   sessionStorage.setItem('userKey', true)
   navegacion('/administrador')
   }else{

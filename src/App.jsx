@@ -9,6 +9,7 @@ import Footer from "./components/shared/Footer";
 import Menu from "./components/shared/Menu";
 import Login from "./components/pages/Login";
 import { useState } from "react";
+import ProtectorAdmin from "./components/routes/ProtectorAdmin";
 
 function App() {
   const usuarioLogeado = sessionStorage.getItem('userKey') || false;
@@ -22,9 +23,11 @@ function App() {
           <Route path="/" element={<Inicio/>}></Route>
           <Route path="/detalle" element={<DetalleProducto></DetalleProducto>}></Route>
           <Route path="/login" element={<Login setUsuarioAdmin={setUsuarioAdmin} ></Login>}></Route>
-          <Route path="/administrador" element={<Administrador></Administrador>}></Route>
-          <Route path="/administrador/crear" element={<FormularioProducto></FormularioProducto>}></Route>
-          <Route path="/administrador/editar" element={<FormularioProducto></FormularioProducto>}></Route>
+          <Route path="/administrador" element={<ProtectorAdmin isAdmin={usuarioAdmin}>
+            <Route index element={<Administrador></Administrador>}></Route>
+            <Route path="crear" element={<FormularioProducto></FormularioProducto>}></Route>
+            <Route path="editar" element={<FormularioProducto></FormularioProducto>}></Route>
+          </ProtectorAdmin>}></Route>
           <Route path="*" element={<Error404></Error404>}></Route>
         </Routes>
       </main>

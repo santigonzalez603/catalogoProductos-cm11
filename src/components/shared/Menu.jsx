@@ -2,7 +2,7 @@ import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import logo from "../../assets/coffee_logo.png";
 import { NavLink, Link } from "react-router";
 
-const Menu = ({usuarioAdmin, setUsuarioAdimin}) => {
+const Menu = ({usuarioAdmin, setUsuarioAdmin}) => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
